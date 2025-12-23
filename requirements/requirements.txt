@@ -4,8 +4,12 @@
 #
 #    pip-compile ./requirements/requirements.in
 #
+et-xmlfile==2.0.0
+    # via openpyxl
 numpy==2.2.6
     # via pandas
+openpyxl==3.1.5
+    # via -r requirements/requirements.in
 pandas==2.3.3
     # via -r requirements/requirements.in
 python-dateutil==2.9.0.post0
