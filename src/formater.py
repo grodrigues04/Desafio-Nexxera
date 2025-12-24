@@ -23,7 +23,7 @@ def formater(type_data, data, column=None, extraRule=None):
                 day = value.day
                 month_name = constants.mouths[value.month]
                 year = value.year
-                year = int(f"20{year:02d}")
+                year = int(f"{year:02d}")
                 new_column.append(f"{day:02d}/{month_name}/{year}")
             return new_column
 
