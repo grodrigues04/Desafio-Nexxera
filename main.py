@@ -1,0 +1,26 @@
+import pandas as pd
+import os
+from dotenv import load_dotenv
+import src.constants as constants
+from src.formater import formater
+
+
+def main():
+    load_dotenv()
+
+    columns_rules = os.getenv("COLUMNS_TO_FORMART", "").split(",")
+    df = pd.read_excel('data/arquivo_entrada.xlsx')
+    columns = list(df.columns)
+
+    for column_name in df.columns:
+        column_formart = column_name.upper().replace(" ", "_")
+        rule = constants.COLUMN_FORMAT_RULES.get(column_formart)
+        if rule:
+            df[column_name] = formater(rule, df[column_name])
+
+    typeOrder = os.getenv("ASCENDING", "False").lower() == "true"
+    df_order = df.sort_values(by=os.getenv("COLUMN_ORDER"), ascending=typeOrder)
+
+    print(df_order)
+if __name__ == "__main__":
+    main()
