@@ -10,4 +10,4 @@ def converter(df):
     )
     print("Conversion complete. File saved as data/output.csv")
 if __name__ == "__main__":
-    main()
+    converter()
