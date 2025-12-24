@@ -11,7 +11,13 @@ def formater(type_data, data, column=None, extraRule=None):
                 new_column.append(value.replace("/", "").replace(".", "").replace("-", ""))
             return new_column
 
+        case constants.STATES:
+            new_column = []
+            for value in data:
+                new_column.append(constants.brazilian_states[value])
+            return new_column
 
+        
 
 
 if __name__ == "__main__":
