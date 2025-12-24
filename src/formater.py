@@ -17,7 +17,17 @@ def formater(type_data, data, column=None, extraRule=None):
                 new_column.append(constants.brazilian_states[value])
             return new_column
 
-        
+        case constants.DATE:
+            new_column = []
+            for value in data:
+                day = value.day
+                month_name = constants.mouths[value.month]
+                year = value.year
+                year = int(f"20{year:02d}")
+                new_column.append(f"{day:02d}/{month_name}/{year}")
+            return new_column
+
+       
 
 
 if __name__ == "__main__":
