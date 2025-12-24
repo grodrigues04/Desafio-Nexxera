@@ -27,7 +27,15 @@ def formater(type_data, data, column=None, extraRule=None):
                 new_column.append(f"{day:02d}/{month_name}/{year}")
             return new_column
 
-       
+        case constants.PAYMENT_AMOUNT:
+            new_column = []
+            for value in data:
+                value = str(value)
+                if "," not in value:
+                    value = f"{value},00"
+                value = f"R${value}"
+                new_column.append(value)        
+            return new_column
 
 
 if __name__ == "__main__":
