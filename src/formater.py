@@ -1,9 +1,9 @@
 from src import constants
 from datetime import datetime
 
-def formater(type_data, data, column=None, extraRule=None):
+def formater(rule, data, column=None, extraRule=None):
 
-    match type_data:
+    match rule:
     
         case constants.POINTS_LINES:
             new_column = []
