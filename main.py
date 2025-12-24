@@ -14,8 +14,9 @@ def main():
 
     for column_name in df.columns:
         column_formart = column_name.upper().replace(" ", "_")
-        rule = constants.COLUMN_FORMAT_RULES.get(column_formart)
-        if rule:
+        if column_name in columns_rules:
+            column_formart = column_name.upper().replace(" ", "_")
+            rule = constants.COLUMN_FORMAT_RULES.get(column_formart)
             df[column_name] = formater(rule, df[column_name])
 
     typeOrder = os.getenv("ASCENDING", "False").lower() == "true"
