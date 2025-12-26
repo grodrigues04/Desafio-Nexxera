@@ -14,7 +14,7 @@ COLUMN_FORMAT_RULES = {
     "VALOR_PAGAMENTO": PAYMENT_AMOUNT
 }
 
-brazilian_states = {
+BRAZILIAN_STATES_MAP = {
     "AC": "Acre",
     "AL": "Alagoas",
     "AP": "Amapá",
@@ -44,7 +44,7 @@ brazilian_states = {
     "TO": "Tocantins"
 }
 
-mouths = {
+MONTHS_MAP = {
     1: "Janeiro",
     2: "Fevereiro",
     3: "Marco",
