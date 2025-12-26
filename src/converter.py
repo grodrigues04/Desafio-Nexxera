@@ -7,7 +7,7 @@ def converter(df, output_name="output"):
         output_path,
         index=False,        
         sep=";",             
-        encoding="utf-8-sig" # evita problema de acentuação no Excel
+        encoding="utf-8-sig" #Avoids accentuation problems in Excel.
     )
     print(f"Conversion complete. File saved as {output_path}")
 if __name__ == "__main__":
