@@ -16,8 +16,8 @@ def main():
     parser.add_argument("input_file_path", help="Path do primeiro arquivo")
     parser.add_argument(
         "output_file_path",
-        nargs="?",           # torna opcional
-        default="output",    # valor padrão
+        nargs="?",           #Makes it optional
+        default="output",    #Default value
         help="Nome do arquivo de saída (sem extensão)"
     )
 
