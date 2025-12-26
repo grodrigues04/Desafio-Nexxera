@@ -21,27 +21,23 @@ $ pip install -r ./requirements/requirements.txt
 ```
 
 ## Configurações e raciocínio:
-Umas das exigencias do desafio era que a aplicação fosse capaz de suportar o processamento de outros arquivos, desde que, tenham a mesma estrutura do arquivo “arquivo_entrada.xls”. Sendo assim, a ideia de desenvolvimento foi separar as responsábilidades das funções de tal maneira que eventuais manutenções, correções de problemas e arquivos diferentes fossem fáceis de lidar. Além disso, criei um fluxo que permitesse que no momento da execução de um novo arquivo, fosse apenas descritas as colunas que devem ser formatadas.
+Uma das exigências do desafio era que a aplicação fosse capaz de processar outros arquivos, desde que estes mantivessem a mesma estrutura do arquivo “arquivo_entrada.xls”. Diante disso, a abordagem adotada no desenvolvimento foi a separação das responsabilidades das funções, de modo a facilitar futuras manutenções, correções de problemas e a adaptação para novos arquivos.
 
- * Crie um arquivo .env na raiz do projeto que segue o mesmo exemplo do .env.example
- * COLUMN_ORDER: Nome da coluna que sera usado para determinar a ordem das linhas
- * ASCENDING: Para ordem crescente, deixe True. False para descrente.
- * COLUMNS_TO_FORMART: Aqui, o nome das colunas que vão ser formatadas devem ser colocadas, separando por virgulas.
-
-Dessa maneira, o .ENV determina quais coluna devem ser formatadas, enquanto o arquivo de constantes determina qual o tipo de regra de formatação para cada coluna.
+Para a função responsável pelas formatações, optei pelo uso da estrutura match case do Python em vez de múltiplos if, aliada ao uso de constantes, com o objetivo de tornar o código mais legível e facilitar possíveis manutenções futuras.
 
 ## Execução:
-Após configurar o .env, para executar o projeto digite no terminal:
+Depois de baixar as dependências , o código pode ser executado da seguinte maneira:
 
-Linux
 ```bash
-$ python3 main.py
+$ python3 main.py nome_arquivo_de_entrada nome_para_o_arquivo_de_saida
 ```
-Windows
+Exemplo de uso:
+
 ```bash
-$ python main.py
+$ python3 main.py data/arquivo_entrada.xlsx output
 ```
+ * Caso nenhum nome seja passado para o arquivo de saída, é gerado com com nome padrão "output".
 
 ### Observações
-* Nas instruções do desafio, não ficou muito claro como deveria ser formatado a coluna K. Devido as datas de final de ano, optei por não enviar nenhuma mensagem de dúvida. Sendo assim, criei uma formatação que adiciona "R$" no começo coloca ,00 no final em caso de não haver virgulas no número.
+* Nas instruções do desafio, não ficou muito claro como deveria ser formatado a coluna K. Sendo assim, implementei a lógica onde o número tem virgulas a cada 3 digitos, finalizando com uma virgula para os últimos dois.
 
